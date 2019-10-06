@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NewsListComponent } from './components/news/news-list/news-list.component';
 
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +15,6 @@ import { ArticlesDataSourceComponent } from './components/news/articles-data-sou
 @NgModule({
   declarations: [
     AppComponent,
-    NewsListComponent,
     NewsTableComponent,
     ArticlesDataSourceComponent
   ],
