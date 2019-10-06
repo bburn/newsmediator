@@ -15,6 +15,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 })
 export class ArticlesDataSourceComponent implements DataSource<Article> {
   private articlesSubject = new BehaviorSubject<Article[]>([]);
+  // private newsSubject = new BehaviorSubject<News>();
 
   constructor(private newsService: NewsService) {}
 
@@ -32,8 +33,15 @@ export class ArticlesDataSourceComponent implements DataSource<Article> {
       .pipe(catchError(() => of([])))
       .subscribe((data: News) => {
         console.log(data);
-        const articles = data.articles;
-        articles => this.articlesSubject.next(articles);
+        this.articlesSubject.next(data.articles);
+        console.log(this.articlesSubject);
       });
   }
+
+  // loadNews(){
+  //   this.newsService.getNews().pipe(catchError(() => of([]))).subscribe((data: News) => {
+  //     this.newsSubject.next(data)
+  //     console.log(this.newsSubject);
+  //   })
+  // }
 }

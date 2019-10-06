@@ -19,5 +19,7 @@ export class NewsTableComponent implements OnInit {
   ngOnInit() {
       this.dataSource = new ArticlesDataSourceComponent(this.newsService);
       this.dataSource.loadArticles();
+      // this.dataSource.loadNews();
+      console.log(this.displayedColumns);
   }
 }
