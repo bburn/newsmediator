@@ -8,12 +8,16 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class NewsMediatorServiceImpl implements NewsMediatorService {
 
+    private static final String MAIN_URL = "https://newsapi.org/v2/";
+    private static final String TOP_HEADLINES = "top-headlines";
+    private static final String API_KEY = "&apiKey=433c622e5dff4edaa34037db0ca93859";
+
     @Autowired
     private NewsConverter newsConverter;
 
     @Override
     public News getTransformedNewsByCountryAndCategory(String country, String category) {
-        final String url = String.format("https://newsapi.org/v2/top-headlines?country=%s&category=%s&apiKey=433c622e5dff4edaa34037db0ca93859", country, category);
+        final String url = String.format("%s%s?country=%s&category=%s%s", MAIN_URL, TOP_HEADLINES, country, category, API_KEY);
         RestTemplate restTemplate = new RestTemplate();
 
         String newsApiNewsResult = restTemplate.getForObject(url, String.class);

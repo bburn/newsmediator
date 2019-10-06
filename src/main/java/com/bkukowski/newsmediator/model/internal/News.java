@@ -1,14 +1,18 @@
 package com.bkukowski.newsmediator.model.internal;
 
 import com.bkukowski.newsmediator.model.newsapi.NewsApiNews;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Data
+@ToString
+@EqualsAndHashCode
+@Getter
 @NoArgsConstructor
 public class News {
 

@@ -1,9 +1,15 @@
 package com.bkukowski.newsmediator.model.internal;
 
 import com.bkukowski.newsmediator.model.newsapi.NewsApiArticle;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Data
+@ToString
+@EqualsAndHashCode
+@Getter
+@NoArgsConstructor
 class Article {
 
     private String author;
