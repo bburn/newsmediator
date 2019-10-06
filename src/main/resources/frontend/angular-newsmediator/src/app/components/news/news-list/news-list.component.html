@@ -1,5 +1,11 @@
-<h2>News</h2>
-
-<div *ngFor="let article of news.articles">
-  {{article.title}}
+<div>
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let article of news.articles">
+          <h3 mat-line>{{article.title}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
 </div>
