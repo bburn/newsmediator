@@ -187,3 +187,8 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/java,maven,windows,angular,intellij
 newsmediator.iml
+.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/MavenWrapperDownloader.java
+HELP.md
+mvnw
+mvnw.cmd
