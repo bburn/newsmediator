@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NewsService } from 'src/app/services/news/news-service.service';
 import { ArticlesDataSourceComponent } from '../articles-data-source/articles-data-source.component';
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-news-table',

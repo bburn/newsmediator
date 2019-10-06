@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsListComponent } from './components/news/news-list/news-list.component';
 
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsTableComponent } from './components/news/news-table/news-table.component';
 import { ArticlesDataSourceComponent } from './components/news/articles-data-source/articles-data-source.component';
@@ -29,7 +29,8 @@ import { ArticlesDataSourceComponent } from './components/news/articles-data-sou
     MatCardModule,
     MatInputModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

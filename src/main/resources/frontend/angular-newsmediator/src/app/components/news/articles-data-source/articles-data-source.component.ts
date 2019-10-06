@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, of } from "rxjs";
 import { CollectionViewer } from "@angular/cdk/collections";
 import { catchError, finalize } from "rxjs/operators";
 import { News } from "src/app/interfaces/model/news";
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: "app-articles-data-source",
