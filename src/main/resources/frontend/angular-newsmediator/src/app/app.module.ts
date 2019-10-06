@@ -9,12 +9,16 @@ import { NewsListComponent } from './components/news/news-list/news-list.compone
 
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewsTableComponent } from './components/news/news-table/news-table.component';
+import { ArticlesDataSourceComponent } from './components/news/articles-data-source/articles-data-source.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsListComponent
+    NewsListComponent,
+    NewsTableComponent,
+    ArticlesDataSourceComponent
   ],
   imports: [
     BrowserModule,
