@@ -1,5 +1,6 @@
 package com.bkukowski.newsmediator.service;
 
+import com.bkukowski.newsmediator.model.internal.News;
 import com.bkukowski.newsmediator.model.newsapi.NewsApiNews;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ class NewsConverter {
         objectMapper.setDateFormat(new SimpleDateFormat("(yyyy-MM-dd"));
     }
 
-    NewsApiNews convertExternalNewsToInternal(String response) {
+    News convertExternalNewsToInternal(String response) {
         NewsApiNews newsApiNews = null;
 
         try {
@@ -27,7 +28,9 @@ class NewsConverter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return newsApiNews;
+        if (newsApiNews != null) {
+            return new News(newsApiNews);
+        }
+        return new News();
     }
 }

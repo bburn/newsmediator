@@ -1,6 +1,6 @@
 package com.bkukowski.newsmediator.service;
 
-import com.bkukowski.newsmediator.model.newsapi.NewsApiNews;
+import com.bkukowski.newsmediator.model.internal.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,12 +12,11 @@ public class NewsMediatorServiceImpl implements NewsMediatorService {
     private NewsConverter newsConverter;
 
     @Override
-    public String getTransformedNewsByCountryAndCategory(String country, String category) {
+    public News getTransformedNewsByCountryAndCategory(String country, String category) {
         final String url = String.format("https://newsapi.org/v2/top-headlines?country=%s&category=%s&apiKey=433c622e5dff4edaa34037db0ca93859", country, category);
         RestTemplate restTemplate = new RestTemplate();
 
         String newsApiNewsResult = restTemplate.getForObject(url, String.class);
-        NewsApiNews newsApiNews = newsConverter.convertExternalNewsToInternal(newsApiNewsResult);
-        return newsApiNews.getArticles().get(0).getTitle();
+        return newsConverter.convertExternalNewsToInternal(newsApiNewsResult).addCategory(category).addCountry(country);
     }
 }

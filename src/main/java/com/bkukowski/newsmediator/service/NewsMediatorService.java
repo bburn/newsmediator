@@ -1,6 +1,8 @@
 package com.bkukowski.newsmediator.service;
 
+import com.bkukowski.newsmediator.model.internal.News;
+
 public interface NewsMediatorService {
 
-    String getTransformedNewsByCountryAndCategory(String country, String category);
+    News getTransformedNewsByCountryAndCategory(String country, String category);
 }
