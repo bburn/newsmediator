@@ -10,7 +10,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @Getter
 @NoArgsConstructor
-class Article {
+public class Article {
 
     private String author;
     private String title;
