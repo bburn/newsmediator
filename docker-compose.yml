@@ -1,7 +1,0 @@
-version: '2'
-services:
-  newsmediator:
-    image: bburndd/com.com.bkukowski.com.bkukowski.newsmediator:0.0.1
-    container_name: com.com.bkukowski.com.bkukowski.newsmediator
-    ports:
-      - 8080:8080
