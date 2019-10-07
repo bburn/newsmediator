@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-newsmediator'`, () => {
+  it(`should have as title 'angular-com.com.bkukowski.com.bkukowski.newsmediator'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-newsmediator');
+    expect(app.title).toEqual('angular-com.com.bkukowski.com.bkukowski.newsmediator');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-newsmediator!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-com.com.bkukowski.com.bkukowski.newsmediator!');
   });
 });

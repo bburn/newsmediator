@@ -1,1 +1,1 @@
-# newsmediator
+# com.com.bkukowski.com.bkukowski.newsmediator

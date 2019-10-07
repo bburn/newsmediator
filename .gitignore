@@ -186,7 +186,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,maven,windows,angular,intellij
-newsmediator.iml
+com.com.bkukowski.com.bkukowski.newsmediator.iml
 .mvn/wrapper/maven-wrapper.properties
 .mvn/wrapper/MavenWrapperDownloader.java
 HELP.md
