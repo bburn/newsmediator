@@ -1,7 +1,11 @@
 version: '2'
 services:
   newsmediator:
-    image: bburndd/com.bkukowski.newsmediator:0.0.1
-    container_name: com.bkukowski.newsmediator
+    image: bburndd/newsmediator:0.0.1
     ports:
-      - 8080:8080
+      - "8080:8080"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
