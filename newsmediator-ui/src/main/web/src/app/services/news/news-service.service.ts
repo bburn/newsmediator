@@ -10,7 +10,7 @@ import { News } from 'src/app/interfaces/model/news';
 export class NewsService {
   constructor(private http: HttpClient) {}
 
-  getNews(): Observable<News> { 
-    return this.http.get('http://localhost:8080/news/pl/technology/').pipe(map(result => <News>result));
+  getNews(): Observable<News> {
+    return this.http.get('http://localhost:8090/news/pl/technology/').pipe(map(result => <News>result));
   }
 }

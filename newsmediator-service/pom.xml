@@ -34,13 +34,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- exclude junit 4 -->
@@ -163,6 +161,20 @@
                 <configuration>
                     <packagingExcludes>WEB-INF/lib/tomcat-*.jar</packagingExcludes>
                     <warName>newsmediator</warName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.7.7</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                    </container>
+                    <configuration>
+                        <type>existing</type>
+                        <home>e:\Tools\apache-tomcat-9.0.1</home>
+                    </configuration>
                 </configuration>
             </plugin>
         </plugins>

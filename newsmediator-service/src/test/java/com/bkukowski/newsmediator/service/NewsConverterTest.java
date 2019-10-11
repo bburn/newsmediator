@@ -28,9 +28,7 @@ class NewsConverterTest {
 
     @Test
     void convertExternalNewsToInternalTest() {
-        News news = newsConverter.convertExternalNewsToInternal(downloadedJSONFromNewsApi);
-        assertNotNull(news);
-        assertFalse(news.getArticles().isEmpty());
+        News news = newsConverter.getNewsByNewsApiNews(downloadedJSONFromNewsApi);
         assertEquals(1, news.getArticles().size());
         assertEquals("Spidersweb.pl", news.getArticles().get(0).getSourceName());
     }

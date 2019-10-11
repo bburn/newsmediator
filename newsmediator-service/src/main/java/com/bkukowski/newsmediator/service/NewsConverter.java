@@ -20,7 +20,7 @@ class NewsConverter {
         objectMapper.setDateFormat(new SimpleDateFormat("(yyyy-MM-dd"));
     }
 
-    News convertExternalNewsToInternal(String response) {
+    News getNewsByNewsApiNews(String response) {
         NewsApiNews newsApiNews = null;
 
         try {

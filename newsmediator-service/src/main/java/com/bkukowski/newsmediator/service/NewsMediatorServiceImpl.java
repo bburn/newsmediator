@@ -21,6 +21,6 @@ public class NewsMediatorServiceImpl implements NewsMediatorService {
         RestTemplate restTemplate = new RestTemplate();
 
         String newsApiNewsResult = restTemplate.getForObject(url, String.class);
-        return newsConverter.convertExternalNewsToInternal(newsApiNewsResult).addCategory(category).addCountry(country);
+        return newsConverter.getNewsByNewsApiNews(newsApiNewsResult).addCategory(category).addCountry(country);
     }
 }
