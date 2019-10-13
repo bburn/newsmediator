@@ -1,10 +1,13 @@
 package com.bkukowski.newsmediator.model.internal;
 
 import com.bkukowski.newsmediator.model.newsapi.NewsApiArticle;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.Date;
 
 @ToString
 @EqualsAndHashCode
@@ -15,7 +18,8 @@ public class Article {
     private String author;
     private String title;
     private String description;
-    private String date;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date date;
     private String sourceName;
     private String articleUrl;
     private String imageUrl;

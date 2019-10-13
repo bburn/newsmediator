@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket eDesignApi(SwaggerConfigProperties swaggerConfigProperties) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo(swaggerConfigProperties))
-                .enable(Boolean.valueOf(swaggerConfigProperties.getEnabled()))
+                .enable(swaggerConfigProperties.isEnabled())
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())

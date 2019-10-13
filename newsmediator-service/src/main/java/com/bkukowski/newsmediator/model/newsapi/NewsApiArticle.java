@@ -2,6 +2,8 @@ package com.bkukowski.newsmediator.model.newsapi;
 
 import lombok.Getter;
 
+import java.util.Date;
+
 @Getter
 public class NewsApiArticle {
 
@@ -11,6 +13,6 @@ public class NewsApiArticle {
     private String description;
     private String url;
     private String urlToImage;
-    private String publishedAt;
+    private Date publishedAt;
     private String content;
 }

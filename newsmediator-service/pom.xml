@@ -127,7 +127,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
+                        <id>copy-angular-resources</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -136,7 +136,25 @@
                             <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.parent.basedir}/newsmediator-ui/src/main/web/dist/angular-newsmediator/</directory>
+                                    <directory>
+                                        ${project.parent.basedir}/newsmediator-ui/src/main/web/dist/angular-newsmediator/
+                                    </directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-docker-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/docker</directory>
+                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -177,6 +195,58 @@
                     </configuration>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-antrun-plugin</artifactId>-->
+<!--                <version>1.8</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>prepare-package</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <inherited>false</inherited>-->
+<!--                        <configuration>-->
+<!--                            <target>-->
+<!--                                <exec executable="docker">-->
+<!--                                    <arg value="build"/>-->
+<!--                                    <arg value="-t"/>-->
+<!--                                    <arg value="newsmediator:0.0.2"/>-->
+<!--                                    <arg value="target"/>;-->
+<!--                                </exec>-->
+<!--                            </target>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>run</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-antrun-plugin</artifactId>-->
+<!--                <version>1.8</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>install</phase>-->
+<!--                        <inherited>false</inherited>-->
+<!--                        <configuration>-->
+<!--                            <target>-->
+<!--                                <exec executable="docker">-->
+<!--                                    <arg value="tag"/>-->
+<!--                                    <arg value="newsmediator:0.0.2"/>-->
+<!--                                    <arg value="newsmediator:latest"/>-->
+<!--                                </exec>-->
+<!--                                <exec executable="docker">-->
+<!--                                    <arg value="push"/>-->
+<!--                                    <arg value="dockermavensample:latest"/>-->
+<!--                                </exec>-->
+<!--                            </target>-->
+<!--                        </configuration>-->
+<!--                        <goals>-->
+<!--                            <goal>run</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

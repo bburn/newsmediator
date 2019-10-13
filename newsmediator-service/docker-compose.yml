@@ -1,0 +1,8 @@
+version: '2'
+services:
+  newsmediator:
+    image: newsmediator:0.0.1
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+      - "8081:8081"

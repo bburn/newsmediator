@@ -1,16 +1,28 @@
 package com.bkukowski.newsmediator.swagger;
 
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Getter
 @Configuration
 public class SwaggerConfigProperties {
 
-    private String apiVersion = "0.1";
-    private String enabled = "true";
-    private String title = "NewsMediator";
-    private String description = "Proxy between front-end app and NewsApi";
-    private boolean useDefaultResponseMessages = false;
-    private boolean enableUrlTemplating = false;
+    @Value("${swagger.apiVersion}")
+    private String apiVersion;
+
+    @Value("${swagger.enabled}")
+    private boolean enabled;
+
+    @Value("${swagger.title}")
+    private String title;
+
+    @Value("${swagger.description}")
+    private String description;
+
+    @Value("${swagger.useDefaultResponseMessages}")
+    private boolean useDefaultResponseMessages;
+
+    @Value("${swagger.enableUrlTemplating}")
+    private boolean enableUrlTemplating;
 }

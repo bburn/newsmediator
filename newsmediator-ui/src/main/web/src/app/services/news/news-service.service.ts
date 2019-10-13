@@ -11,6 +11,6 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
   getNews(): Observable<News> {
-    return this.http.get('http://localhost:8090/news/pl/technology/').pipe(map(result => <News>result));
+    return this.http.get('http://localhost:8081/news/pl/technology/').pipe(map(result => <News>result));
   }
 }
