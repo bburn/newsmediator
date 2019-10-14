@@ -25,12 +25,12 @@ public class News {
         this.articles = newsApiNews.getArticles().stream().map(newsApiArticle -> new Article(newsApiArticle)).collect(Collectors.toList());
     }
 
-    public News addCountry(String country) {
+    public News setCountry(String country) {
         this.country = country;
         return this;
     }
 
-    public News addCategory(String category) {
+    public News setCategory(String category) {
         this.category = category;
         return this;
     }
