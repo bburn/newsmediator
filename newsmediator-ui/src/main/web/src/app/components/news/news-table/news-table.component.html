@@ -1,45 +1,36 @@
 <div>
-  <mat-table class="articles-table mat-elevation-z8" [dataSource]="dataSource">
-
-    <ng-container matColumnDef="sourceName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Source name </th>
-      <td mat-cell *matCellDef="let row"> {{row.sourceName}} </td>
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
-      <td mat-cell *matCellDef="let row"> {{row.author}} </td>
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="example-element-imageUrl">
+            <img [src]="element.imageUrl" style="height: 50px;width: 50px;" />
+            <span class="example-element-imageUrl-attribution"> </span>
+          </div>
+          <div class="example-element-description">
+            {{element.description}}
+            <span class="example-element-description-attribution"></span>
+          </div>
+          <div class="example-element-articleUrl">
+            <li>
+              <a href>{{element.articleUrl}}</a>
+            </li>
+            <span class="example-element-articleUrl-attribution"> </span>
+          </div>
+        </div>
+      </td>
     </ng-container>
 
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-      <td mat-cell *matCellDef="let row"> {{row.title}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-      <td mat-cell *matCellDef="let row"> {{row.description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="articleUrl">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Article URL </th>
-      <td mat-cell *matCellDef="let row"> {{row.articleUrl}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="imageUrl">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Image URL </th>
-      <td mat-cell *matCellDef="let row"> {{row.imageUrl}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-      <td mat-cell *matCellDef="let row"> {{row.date}} </td>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-  </mat-table>
-
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
 </div>

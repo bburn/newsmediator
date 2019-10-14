@@ -15,7 +15,11 @@ public class UrlProvider {
     @Value("${service.apiKey}")
     private String apiKey;
 
+    @Value("${service.pageSize}")
+    private String pageSize;
+
     String getUrl(String country, String category) {
-        return String.format("%s%s?country=%s&category=%s&%s", mainUrl, topHeadlines, country, category, apiKey);
+        return String.format("%s%s?country=%s&category=%s&%s&%s", mainUrl, topHeadlines, country, category,
+                pageSize, apiKey);
     }
 }
