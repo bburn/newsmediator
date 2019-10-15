@@ -1,0 +1,6 @@
+version: '2'
+services:
+  newsmediator:
+    image: bburndd/newsmediator:0.0.1
+    ports:
+      - "8081:8081"

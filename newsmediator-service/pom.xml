@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>newsmediator-service</artifactId>
     <packaging>war</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,6 +20,7 @@
         <junit.vintage.version>5.4.2</junit.vintage.version>
         <junit-platform.version>1.2.0</junit-platform.version>
         <junit-jupiter.version>5.4.2</junit-jupiter.version>
+        <docker.image.prefix>bburndd</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -182,19 +183,45 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.7.7</version>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.1</version>
                 <configuration>
-                    <container>
-                        <containerId>tomcat9x</containerId>
-                    </container>
-                    <configuration>
-                        <type>existing</type>
-                        <home>e:\Tools\apache-tomcat-9.0.1</home>
-                    </configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+
+<!--                    <serverId>docker-hub</serverId>-->
+<!--                    <registryUrl>https://cloud.docker.com</registryUrl>-->
+
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.cargo</groupId>-->
+<!--                <artifactId>cargo-maven2-plugin</artifactId>-->
+<!--                <version>1.7.7</version>-->
+<!--                <configuration>-->
+<!--                    <container>-->
+<!--                        <containerId>tomcat9x</containerId>-->
+<!--                    </container>-->
+<!--                    <configuration>-->
+<!--                        <type>existing</type>-->
+<!--                        <home>e:\Tools\apache-tomcat-9.0.1</home>-->
+<!--                    </configuration>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
 <!--                <artifactId>maven-antrun-plugin</artifactId>-->

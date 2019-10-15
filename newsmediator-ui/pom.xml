@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>newsmediator-ui</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
