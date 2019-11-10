@@ -125,25 +125,33 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-angular-resources</id>
-                        <phase>validate</phase>
+                        <id>unpack</id>
+                        <phase>generate-resources</phase>
                         <goals>
-                            <goal>copy-resources</goal>
+                            <goal>unpack</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>
-                                        ${project.parent.basedir}/newsmediator-ui/src/main/web/dist/angular-newsmediator/
-                                    </directory>
-                                </resource>
-                            </resources>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.bkukowski</groupId>
+                                    <artifactId>newsmediator-ui</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>zip</type>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/classes/resources</outputDirectory>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
                     <execution>
                         <id>copy-docker-resources</id>
                         <phase>validate</phase>

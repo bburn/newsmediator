@@ -26,7 +26,7 @@
                     <descriptors>
                         <descriptor>assembly.xml</descriptor>
                     </descriptors>
-                    <finalName>dupa-${project.version}</finalName>
+                    <finalName>newsmediator-ui</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
