@@ -3,6 +3,7 @@ package com.bkukowski.newsmediator.service;
 import com.bkukowski.newsmediator.model.internal.Article;
 import com.bkukowski.newsmediator.model.internal.News;
 import com.bkukowski.newsmediator.model.newsapi.NewsApiNews;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -11,13 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class NewsMediatorServiceImpl implements NewsMediatorService {
-
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    private UrlProvider urlProvider;
+    private final RestTemplate restTemplate;
+    private final UrlProvider urlProvider;
 
     @Override
     public News getTransformedNewsByCountryAndCategory(String country, String category) {
