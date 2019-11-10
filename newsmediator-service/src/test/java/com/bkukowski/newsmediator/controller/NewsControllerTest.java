@@ -70,7 +70,7 @@ class NewsControllerTest {
         ReflectionTestUtils.setField(article, "imageUrl", "ImageUrl");
         List<Article> articleList = new ArrayList<>();
         articleList.add(article);
-        News news = new News();
+        News news = News.builder().build();
         ReflectionTestUtils.setField(news, "articles", articleList);
         news.setCategory(category);
         news.setCountry(country);

@@ -11,7 +11,7 @@ class NewsTest {
 
     @Test
     void whenSetCountryAndCategory_thenExpectedCountryAndCateory() {
-        News news = new News().setCategory("technology").setCountry("pl");
+        News news = News.builder().category("technology").country("pl").build();
         assertEquals("pl", news.getCountry());
         assertEquals("technology", news.getCategory());
         assertNull(news.getArticles());

@@ -24,7 +24,7 @@ public class Article {
     private String articleUrl;
     private String imageUrl;
 
-    Article(NewsApiArticle newsApiArticle) {
+    public Article(NewsApiArticle newsApiArticle) {
         if (newsApiArticle != null) {
             this.author = newsApiArticle.getAuthor();
             this.title = newsApiArticle.getTitle();
