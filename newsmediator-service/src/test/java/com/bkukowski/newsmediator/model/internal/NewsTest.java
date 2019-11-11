@@ -1,20 +1,20 @@
 package com.bkukowski.newsmediator.model.internal;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
 class NewsTest {
 
     @Test
-    void whenSetCountryAndCategory_thenExpectedCountryAndCateory() {
-        News news = News.builder().category("technology").country("pl").build();
-        assertEquals("pl", news.getCountry());
-        assertEquals("technology", news.getCategory());
-        assertNull(news.getArticles());
+    void whenSetCountryAndCategory_thenExpectedCountryAndCategory() {
+        // when
+        final News news = News.builder().category("technology").country("pl").build();
+
+        // then
+        assertThat(news.getCountry()).isEqualTo("pl");
+        assertThat(news.getCategory()).isEqualTo("technology");
+        assertThat(news.getArticles()).isNull();
     }
 
 }

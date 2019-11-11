@@ -4,7 +4,6 @@ import com.bkukowski.newsmediator.model.internal.Article;
 import com.bkukowski.newsmediator.model.internal.News;
 import com.bkukowski.newsmediator.model.newsapi.NewsApiNews;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -39,7 +38,7 @@ public class NewsMediatorServiceImpl implements NewsMediatorService {
 
     private List<Article> articles(NewsApiNews response) {
         return response.getArticles().stream()
-                .map(Article::new)
+                .map(Article::of)
                 .collect(Collectors.toList());
     }
 }
