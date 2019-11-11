@@ -1,12 +1,11 @@
 package com.bkukowski.newsmediator.service;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class UrlProviderTest {
@@ -19,13 +18,19 @@ class UrlProviderTest {
 
     @Test
     void whenValidCountryAndCategory_thenValidURL() {
-        String url = urlProvider.getUrl("pl", "technology");
-        assertEquals(expectedURL, url);
+        // when
+        final String url = urlProvider.getUrl("pl", "technology");
+
+        // then
+        assertThat(url).isEqualTo(expectedURL);
     }
 
     @Test
     void whenInValidCountryAndCategory_thenValidURL() {
-        String url = urlProvider.getUrl("polska", "technologia");
-        assertNotEquals(expectedURL, url);
+        // when
+        final String url = urlProvider.getUrl("polska", "technologia");
+
+        // then
+        assertThat(url).isNotEqualTo(expectedURL);
     }
 }

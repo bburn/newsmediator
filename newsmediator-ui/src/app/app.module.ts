@@ -10,13 +10,19 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolb
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsTableComponent } from './components/news/news-table/news-table.component';
 import { ArticlesDataSourceComponent } from './components/news/articles-data-source/articles-data-source.component';
+import { NewsItem } from './components/news-item';
+import { NewsItems } from './components/news-items';
+import { NewsApp } from './components/news-app';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsTableComponent,
-    ArticlesDataSourceComponent
+    ArticlesDataSourceComponent,
+    NewsItem,
+    NewsItems,
+    NewsApp
   ],
   imports: [
     BrowserModule,

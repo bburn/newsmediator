@@ -2,17 +2,12 @@ package com.bkukowski.newsmediator.model.internal;
 
 import com.bkukowski.newsmediator.model.newsapi.NewsApiArticle;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 
-@ToString
-@EqualsAndHashCode
-@Getter
-@NoArgsConstructor
+@Data
+@Builder
 public class Article {
 
     private String author;
@@ -24,15 +19,18 @@ public class Article {
     private String articleUrl;
     private String imageUrl;
 
-    Article(NewsApiArticle newsApiArticle) {
+    public static Article of(NewsApiArticle newsApiArticle) {
         if (newsApiArticle != null) {
-            this.author = newsApiArticle.getAuthor();
-            this.title = newsApiArticle.getTitle();
-            this.description = newsApiArticle.getDescription();
-            this.date = newsApiArticle.getPublishedAt();
-            this.sourceName = newsApiArticle.getSource().getName();
-            this.articleUrl = newsApiArticle.getUrl();
-            this.imageUrl = newsApiArticle.getUrlToImage();
+            return Article.builder()
+                    .author(newsApiArticle.getAuthor())
+                    .title(newsApiArticle.getTitle())
+                    .description(newsApiArticle.getDescription())
+                    .date(newsApiArticle.getPublishedAt())
+                    .sourceName(newsApiArticle.getSource().getName())
+                    .articleUrl(newsApiArticle.getUrl())
+                    .imageUrl(newsApiArticle.getUrlToImage())
+                    .build();
         }
+        return Article.builder().build();
     }
 }
